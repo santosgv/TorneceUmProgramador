@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace TorneceUmProgramador
 {
-    class Lerarquivo
+    public class Lerarquivo 
     {
         public static void LerArquivo(int Arquivo)
         {
-            string caminho = @"C:\Users\vitorgomes\source\repos\TorneceUmProgramador\Arquivos\arquivo" + (Arquivo) +".txt";
+        
+            string caminho = @"C:\Users\Vitor\Source\Repos\santosgv\importa_arquivos\Arquivos\arquivo" + (Arquivo) +".txt";
             File.Copy(caminho, caminho+"CONV");
             if (File.Exists(caminho))
             {
@@ -23,10 +24,17 @@ namespace TorneceUmProgramador
                     {
                         try
                         {
+
                             string[] dados = linha.Split(',');
                             Console.WriteLine($"Cliente {dados[0]} com idade {dados[1]} nasceu em {dados[2]} pedido {dados[3]}");
                         }
-                        catch (SystemException msg) { Console.WriteLine($"Erro sem pedido "); }
+                        catch (SystemException )
+                        {
+                            string[] dados = linha.Split(',');
+                          
+                            Console.WriteLine($"Cliente {dados[0]} com idade {dados[1]} nasceu em {dados[2]}, sem pedido");
+                        }
+
                     }
                    
                 }
@@ -41,5 +49,8 @@ namespace TorneceUmProgramador
             else
                 Console.WriteLine("Nao a arquivo para serem listado");
         }
+        
     }
+   
 }
+

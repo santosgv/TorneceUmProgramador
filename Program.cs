@@ -1,13 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace TorneceUmProgramador
 {
-    class Program: Lerarquivo
+   public class Program : Lerarquivo
     {
-        static void Main(string[] args)
+       public static void Main(string[] args)
         {
-            LerArquivo(0);
+            Conexao banco = new Conexao();
+   
+
+
+            Lerarquivo.LerArquivo(0);
+            banco.Conectar();
 
 
             Console.ReadLine();
